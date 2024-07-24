@@ -5,7 +5,7 @@ constructor(){
   this.state = {
     Name:'', Password:''
   }
-
+}
   handlenamechange=(event)=>{
     this.setState({
       Name: event.target.value
@@ -23,18 +23,18 @@ constructor(){
   render(){
     return (
       <div>
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
       <input type="text" placeholder="Name" value={this.state.Name} onChange={this.handlenamechange} />
-        
+
      <input type="password" placeholder="password" value={this.state.Password} onChange={
   this.handlepasswordchange  
 }     /> 
 
-    <button onClick={()=>this.submit()} Submit />
+    <button onClick={()=>{this.submit()}} >Submit</button>
       </form>
       </div>
     );
   }
-   
-} 
+
+
 }
