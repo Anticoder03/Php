@@ -1,0 +1,80 @@
+import React, { Component } from 'react';
+
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      password: ""
+    };
+  }
+
+  handleName = (e) => {
+    this.setState({ name: e.target.value });
+  }
+
+  handlePassword = (e) => {
+    this.setState({ password: e.target.value });
+  }
+
+  submit = () => {
+    alert(`Username: ${this.state.name}, Password: ${this.state.password}`);
+  }
+
+  render() {
+    const formStyle = {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '300px',
+      margin: '0 auto',
+      padding: '20px',
+      border: '1px solid #ccc',
+      borderRadius: '5px',
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    };
+
+    const inputStyle = {
+      marginBottom: '10px',
+      padding: '8px',
+      borderRadius: '4px',
+      border: '1px solid #ccc',
+      fontSize: '16px',
+    };
+
+    const buttonStyle = {
+      padding: '10px',
+      borderRadius: '4px',
+      border: 'none',
+      backgroundColor: '#28a745',
+      color: '#fff',
+      fontSize: '16px',
+      cursor: 'pointer',
+    };
+
+    return (
+      <div>
+        <form style={formStyle} onSubmit={(e) => e.preventDefault()}>
+          <label>Username</label>
+          <input
+            type="text"
+            placeholder="Name"
+            value={this.state.name}
+            onChange={this.handleName}
+            style={inputStyle}
+          />
+          <label>Password</label>
+          <input
+            type="password"
+            placeholder="Password"
+            value={this.state.password}
+            onChange={this.handlePassword}
+            style={inputStyle}
+          />
+          <button type="submit" onClick={this.submit} style={buttonStyle}>
+            Login
+          </button>
+        </form>
+      </div>
+    );
+  }
+}
